@@ -1,0 +1,9 @@
+services:
+  villascout:
+    build: .
+    env_file: .env
+    volumes:
+      - ./output:/app/output
+      - ./cache:/app/cache
+      - ./villascout.db:/app/villascout.db
+    command: ["python", "-m", "villascout", "--location", "Igatpuri", "--radius", "40000", "--output", "output/villas.xlsx"]
